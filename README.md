@@ -37,7 +37,7 @@ This module implements a simplified TileLink slave that interfaces with a synchr
 
 ### Architecture Overview
 | **Module**           | **Function**                                                                                                                           |
-| ---------------------|--------------------------------------------------------------------------------------------------------------------------------------- |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | FIFO (A channel)     | Buffers TileLink `A` channel requests. Stores headers with address and opcode.                                                         |
 | FSM_a_slave          | State machine to decode `A` channel packets. Issues write operations directly or creates read requests for later response.             |
 | FIFO_RESPON          | A shared buffer holding pending read requests from `A` channel to be processed by the `D` response logic.                              |
