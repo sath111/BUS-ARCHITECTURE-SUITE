@@ -8,6 +8,7 @@ This repository serves as a foundational framework for developing bus-connected 
 This module implements a fully functional AXI Master interface that connects to a synchronous RAM. It supports AXI4 full protocol with burst transfers, separate read and write paths, and response handling. The design includes FIFOs to decouple the slave interface from the master logic and uses FSMs for managing write and read operations.
 
 ### Architecture Overview
+![AXI_RAM_Diagram](Image/AXI_RAM.png)
 | **Module**         | **Function**                                                                                                                                  |
 | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
 | FIFO             | Buffers for each AXI channel (AW, W, B, AR, R) to decouple input AXI transactions from memory-side latency. Supports `push/pop/empty/full`.   |
