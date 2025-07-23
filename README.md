@@ -5,3 +5,6 @@ This project provides a modular and extensible collection of RAM implementations
 * **TileLink RAM:** A minimal TileLink-compatible RAM slave implementation for basic simulation and integration.
 
 The aim of this repository is to serve as a foundation for building bus-connected peripherals, protocol bridges, and test infrastructure in hardware design projects. Future expansions will include support for AHB, APB, and bus protocol converters (e.g., AXI ↔ APB bridge, TileLink ↔ AXI bridge, etc.).
+
+## AXI4_RAM
+
