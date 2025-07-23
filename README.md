@@ -65,3 +65,8 @@ This module implements a simplified TileLink slave that interfaces with a synchr
 * **FIFO-Based Buffering:** Absorbs burst or back-to-back requests while RAM access is ongoing.
 * **Modular FSM Design:** Separates write and read handling, improving clarity and testability.
 * **Synchronous RAM Support:** Clean integration with clocked RAMs, suitable for ASIC or FPGA use.
+
+## Summary
+This repository is the result of a personal exploration into on-chip bus protocols and memory-mapped system design. Motivated by a desire to deeply understand how real-world SoC buses operate, I independently designed and implemented RAM modules compatible with AXI4-Full, TileLink, and APB protocols.
+
+Each module adheres to the core principles of its respective protocol, supports essential features like burst transfers and byte strobes, and is written in clean, modular Verilog. All designs were verified via custom testbenches and waveform inspection, without relying on third-party IPs or automation tools.
