@@ -39,8 +39,8 @@ This module implements a fully functional AXI Master interface that connects to 
 This module implements a simplified TileLink slave that interfaces with a synchronous RAM. It handles A (request) and D (response) channels via FSM-based control logic and FIFO buffering. The design decouples TileLink handshakes from RAM access latency, allowing efficient and pipelined memory communication.  
 
 ### Architecture Overview
-| **Module**         | **Function**                                                                                                                           |
-| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| **Module**           | **Function**                                                                                                                           |
+| ---------------------|--------------------------------------------------------------------------------------------------------------------------------------- |
 | FIFO (A channel)     | Buffers TileLink `A` channel requests. Stores headers with address and opcode.                                                         |
 | FSM_a_slave          | State machine to decode `A` channel packets. Issues write operations directly or creates read requests for later response.             |
 | FIFO_RESPON          | A shared buffer holding pending read requests from `A` channel to be processed by the `D` response logic.                              |
