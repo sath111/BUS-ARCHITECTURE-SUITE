@@ -1,7 +1,8 @@
 # BUS ARCHITECTURE SUITE
 Bus Architecture Suite is a modular and extensible collection of RAM modules designed to support widely used bus protocols in SoC and FPGA designs. It currently features:
 * **AXI4 Full RAM** – A fully compliant AXI4 memory-mapped RAM module that supports burst transactions, write strobes, and backpressure.
-* **TileLink RAM** – A lightweight TileLink-compatible RAM slave designed for basic simulation and system integration.  
+* **TileLink RAM** – A lightweight TileLink-compatible RAM slave designed for basic simulation and system integration.
+ 
 This repository serves as a foundational framework for developing bus-connected peripherals, protocol bridges, and verification infrastructure. Planned extensions include support for AHB, APB, and cross-protocol adapters such as AXI ↔ APB bridges and TileLink ↔ AXI bridges.  
 ## AXI Full Master Interface with Synchronous RAM
 This module implements a fully functional AXI Master interface that connects to a synchronous RAM. It supports AXI4 full protocol with burst transfers, separate read and write paths, and response handling. The design includes FIFOs to decouple the slave interface from the master logic and uses FSMs for managing write and read operations.
