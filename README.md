@@ -67,7 +67,7 @@ This module implements a simplified TileLink slave that interfaces with a synchr
 * **Synchronous RAM Support:** Clean integration with clocked RAMs, suitable for ASIC or FPGA use.
 
 ## Summary
-* This repository is the result of a personal exploration into on-chip bus protocols and memory-mapped system design. Motivated by a desire to deeply understand how real-world SoC buses operate, I independently designed and implemented RAM modules compatible with AXI4-Full, TileLink, and APB protocols.
+* This repository is the result of a personal exploration into on-chip bus protocols and memory-mapped system design. Motivated by a desire to deeply understand how real-world SoC buses operate, I independently designed and implemented RAM modules compatible with AXI4-Full, TileLink protocols.
 * Each module adheres to the core principles of its respective protocol, supports essential features like burst transfers and byte strobes, and is written in clean, modular Verilog. All designs were verified via custom testbenches and waveform inspection, without relying on third-party IPs or automation tools.
  
 This project was not developed under the scope of any university assignment or company task. It was initiated out of personal curiosity and a strong desire to understand system-level hardware design. The experience helped me build practical skills in AXI protocol implementation and served as a foundational step in my long-term plan to specialize in digital design and verification.
