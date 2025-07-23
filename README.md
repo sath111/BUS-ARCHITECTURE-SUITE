@@ -26,7 +26,7 @@ This module implements a fully functional AXI Master interface that connects to 
   * **Read Address (AR):** Buffered into FIFO; FSM_MASTER_READ fetches and drives read bursts.  
   * **Read Data (R):** After reading from RAM, data is pushed into FIFO with RVALID, RRESP, and RLAST.  
 
-### Design Highlights
+### Design Overview
 * **Burst Support:** FSM_MASTER_WRITE and FSM_MASTER_READ both calculate burst addresses using adders, support for AXBURST, AXLEN, and AXSIZE.  
 * **Throughput-Oriented:** FIFO buffers reduce stalls and decouple AXI transaction timing from memory access timing.  
 * **Modular FSMs:** Cleanly separated FSMs allow for easy extension (e.g., cache support or memory-mapped peripherals).  
@@ -57,7 +57,7 @@ This module implements a simplified TileLink slave that interfaces with a synchr
 * Response packet prepared by FSM_d_master after reading from RAM.
 * Header width: 64 bits, formatted into TileLink D packet structure.
 
-### Key Features
+### Design Overview
 * **TileLink-Compatible:** Decoupled processing of A and D channels with correct ready/valid signaling.
 * **FIFO-Based Buffering:** Absorbs burst or back-to-back requests while RAM access is ongoing.
 * **Modular FSM Design:** Separates write and read handling, improving clarity and testability.
