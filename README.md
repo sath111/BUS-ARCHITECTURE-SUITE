@@ -35,3 +35,27 @@ This module implements a fully functional AXI Master interface that connects to 
 * **Modular FSMs:** Cleanly separated FSMs allow for easy extension (e.g., cache support or memory-mapped peripherals).  
 * **Synchronous RAM:** Ensures timing consistency with the master clock domain.  
 
+## TileLink Slave Interface with Synchronous RAM
+This module implements a simplified TileLink slave that interfaces with a synchronous RAM. It handles A (request) and D (response) channels via FSM-based control logic and FIFO buffering. The design decouples TileLink handshakes from RAM access latency, allowing efficient and pipelined memory communication.  
+
+### Architecture Overview
+| **Module**         | **Function**                                                                                                                           |
+| ------------------ | -------------------------------------------------------------------------------------------------------------------------------------- |
+| FIFO (A channel) | Buffers TileLink `A` channel requests. Stores headers with address and opcode.                                                         |
+| FSM_a_slave      | State machine to decode `A` channel packets. Issues write operations directly or creates read requests for later response.             |
+| FIFO_RESPON      | A shared buffer holding pending read requests from `A` channel to be processed by the `D` response logic.                              |
+| FSM_d_master     | State machine that drives the `D` response channel. Processes read requests from FIFO, issues read to RAM, and sends response packets. |
+| FIFO (D channel) | Buffers outgoing `D` responses. Helps isolate timing between RAM response and TileLink handshaking.                                    |
+| RAM              | Synchronous memory block. Receives write requests from `FSM_a_slave` and read requests from `FSM_d_master`.                            |
+
+### TileLink Channel Handling
+**A Channel:**
+* Signals: s_a_valid, s_a_ready
+* Header width: 101 bits
+* Buffered in FIFO; decoded by FSM_a_slave.
+* Supports both read and write requests.
+
+**D Channel:**
+* Signals: m_d_valid, m_d_ready
+* Response packet prepared by FSM_d_master after reading from RAM.
+* Header width: 64 bits, formatted into TileLink D packet structure.
