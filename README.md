@@ -59,3 +59,9 @@ This module implements a simplified TileLink slave that interfaces with a synchr
 * Signals: m_d_valid, m_d_ready
 * Response packet prepared by FSM_d_master after reading from RAM.
 * Header width: 64 bits, formatted into TileLink D packet structure.
+
+### Key Features
+* **TileLink-Compatible:** Decoupled processing of A and D channels with correct ready/valid signaling.
+* **FIFO-Based Buffering:** Absorbs burst or back-to-back requests while RAM access is ongoing.
+* **Modular FSM Design:** Separates write and read handling, improving clarity and testability.
+* **Synchronous RAM Support:** Clean integration with clocked RAMs, suitable for ASIC or FPGA use.
